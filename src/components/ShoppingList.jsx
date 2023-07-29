@@ -12,7 +12,7 @@ const ShoppingList = () => {
   const [shoppingHistory, setShoppingHistory] = useState([])
   const [showShoppingListHistory, setShowShoppingListHistory] = useState(false)
 
-  // Fetch shopping list and delete history from the server
+  // Fetch shopping list and shopping history from the server
   useEffect(() => {
     fetchShoppingList()
     fetchShoppingListHistory()
@@ -86,26 +86,26 @@ const ShoppingList = () => {
   }
 
   const handleDeleteItem = async (itemIndex) => {
-    const itemToDelete = lists[itemIndex];
+    const itemToDelete = lists[itemIndex]
     
     if (!itemToDelete.completed) {
       // If the item is not completed, delete it from the database
       try {
-        await axios.delete(`https://shelflife.onrender.com/shoppingList/${itemToDelete._id}`);
+        await axios.delete(`https://shelflife.onrender.com/shoppingList/${itemToDelete._id}`)
         // Fetch the updated shopping list after deletion
-        fetchShoppingList();
-        toast.success('Item deleted successfully.');
+        fetchShoppingList()
+        toast.success('Item deleted successfully.')
       } catch (error) {
-        toast.error('Error deleting item.');
+        toast.error('Error deleting item.')
       }
     } else {
       // If the item is completed, delete it from the frontend only
-      const updatedLists = [...lists];
-      updatedLists.splice(itemIndex, 1);
-      setLists(updatedLists);
-      toast.success('Item removed successfully.');
+      const updatedLists = [...lists]
+      updatedLists.splice(itemIndex, 1)
+      setLists(updatedLists)
+      toast.success('Item removed successfully.')
     }
-  };
+  }
   
 
   const handleDeleteFromHistory = async (itemId) => {
