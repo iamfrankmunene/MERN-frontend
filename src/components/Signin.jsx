@@ -18,7 +18,7 @@ const SigninForm = ({ handleAuthenticationSuccess, showLogin }) => {
     e.preventDefault()
     try {
       // Call the backend API to sign in the user
-      const response = await axios.post('https://mern-backend-nr1c5n5es-iamfrankmunene.vercel.app/register', {
+      const response = await axios.post('https://mern-backend-ashen.vercel.app/register', {
         username,
         password,
       })
