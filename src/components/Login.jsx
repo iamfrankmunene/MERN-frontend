@@ -18,7 +18,7 @@ const LoginForm = ({ handleAuthenticationSuccess, showLogin }) => {
     e.preventDefault()
     try {
       // Call the backend API to login the user
-      const response = await axios.post('https://shelflife.onrender.com/login', {
+      const response = await axios.post('https://zesty-tarsier-5adeee.netlify.app/login', {
         username,
         password,
       })

@@ -25,16 +25,16 @@ const ShelflifeInput = () => {
   
       // If the input has an _id, it means it already exists in the database, so update it
       if (input._id) {
-        await axios.put(`https://shelflife.onrender.com/shelflife/${input._id}`, input)
+        await axios.put(`https://zesty-tarsier-5adeee.netlify.app/shelflife/${input._id}`, input)
         toast.success('Successfully updated input in the server')
       } else {
         // If the input doesn't have an _id, it's a new input, so add it to the database
-        await axios.post('https://shelflife.onrender.com/shelflife', input)
+        await axios.post('https://zesty-tarsier-5adeee.netlify.app/shelflife', input)
         toast.success('Successfully added input to the server')
       }
   
       // Fetch all the available information from the backend and update the inputs
-      const response = await axios.get('https://shelflife.onrender.com/shelflife')
+      const response = await axios.get('https://zesty-tarsier-5adeee.netlify.app/shelflife')
       const shelflifeInputsData = response.data
       setInputs(shelflifeInputsData)
     } catch (error) {
@@ -49,10 +49,10 @@ const ShelflifeInput = () => {
       const idToDelete = inputs[index]._id
 
       // Send the DELETE request to the backend to delete the input by its ID
-      await axios.delete(`https://shelflife.onrender.com/shelflife/${idToDelete}`)
+      await axios.delete(`https://zesty-tarsier-5adeee.netlify.app/shelflife/${idToDelete}`)
 
       // Fetch all the available information from the backend and update the inputs
-      const response = await axios.get('https://shelflife.onrender.com/shelflife')
+      const response = await axios.get('https://zesty-tarsier-5adeee.netlify.app/shelflife')
       const shelflifeInputsData = response.data
       setInputs(shelflifeInputsData)
     } catch (error) {
@@ -75,7 +75,7 @@ const ShelflifeInput = () => {
     const checkAlerts = async () => {
       try {
         // Fetch the shelflife inputs from the server
-        const response = await axios.get('https://shelflife.onrender.com/shelflife')
+        const response = await axios.get('https://zesty-tarsier-5adeee.netlify.app/shelflife')
         const shelflifeInputsData = response.data
 
         const currentDate = formatDate(new Date())
@@ -110,7 +110,7 @@ const ShelflifeInput = () => {
     // Fetch all the available information from the backend and populate the inputs
     const fetchShelflifeInputs = async () => {
       try {
-        const response = await axios.get('https://shelflife.onrender.com/shelflife')
+        const response = await axios.get('https://zesty-tarsier-5adeee.netlify.app/shelflife')
         const shelflifeInputsData = response.data
         setInputs(shelflifeInputsData)
       } catch (error) {
