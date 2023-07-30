@@ -18,7 +18,7 @@ const LoginForm = ({ handleAuthenticationSuccess, showLogin }) => {
     e.preventDefault()
     try {
       // Call the backend API to login the user
-      const response = await axios.post('https://mern-backend-ashen.vercel.app/login', {
+      const response = await axios.post('https://shelflife-backend.onrender.com/login', {
         username,
         password,
       })
