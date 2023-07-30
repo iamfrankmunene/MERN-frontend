@@ -20,7 +20,7 @@ const ShoppingList = () => {
 
   const fetchShoppingList = async () => {
     try {
-      const response = await axios.get('https://zesty-tarsier-5adeee.netlify.app/shoppingList')
+      const response = await axios.get('https://mern-backend-nr1c5n5es-iamfrankmunene.vercel.app//shoppingList')
       setLists(response.data)
     } catch (error) {
       toast.error('Error fetching shopping list.')
@@ -29,7 +29,7 @@ const ShoppingList = () => {
 
   const fetchShoppingListHistory = async () => {
     try {
-      const response = await axios.get('https://zesty-tarsier-5adeee.netlify.app/shoppingHistory')
+      const response = await axios.get('https://mern-backend-nr1c5n5es-iamfrankmunene.vercel.app//shoppingHistory')
       setShoppingHistory(response.data)
     } catch (error) {
       toast.error('Error fetching shopping history.')
@@ -68,7 +68,7 @@ const ShoppingList = () => {
 
       const updatedItem = updatedListsCopy.find((item) => item._id === itemId)
 
-      await axios.put(`https://zesty-tarsier-5adeee.netlify.app/shoppingList/${itemId}`, {
+      await axios.put(`https://mern-backend-nr1c5n5es-iamfrankmunene.vercel.app//shoppingList/${itemId}`, {
         completed: updatedItem.completed,
         crossedOutDate: updatedItem.crossedOutDate,
       })
@@ -91,7 +91,7 @@ const ShoppingList = () => {
     if (!itemToDelete.completed) {
       // If the item is not completed, delete it from the database
       try {
-        await axios.delete(`https://zesty-tarsier-5adeee.netlify.app/shoppingList/${itemToDelete._id}`)
+        await axios.delete(`https://mern-backend-nr1c5n5es-iamfrankmunene.vercel.app//shoppingList/${itemToDelete._id}`)
         // Fetch the updated shopping list after deletion
         fetchShoppingList()
         toast.success('Item deleted successfully.')
@@ -115,7 +115,7 @@ const ShoppingList = () => {
 
     // Backend delete
     try {
-      await axios.delete(`https://zesty-tarsier-5adeee.netlify.app/shoppingHistory/${itemId}`)
+      await axios.delete(`https://mern-backend-nr1c5n5es-iamfrankmunene.vercel.app//shoppingHistory/${itemId}`)
     } catch (error) {
       toast.error('Error deleting item from shopping history.')
     }
@@ -129,7 +129,7 @@ const ShoppingList = () => {
     const newItem = lists[itemIndex]
     try {
       // Send the POST request to the backend to add the new item
-      const response = await axios.post('https://zesty-tarsier-5adeee.netlify.app/shoppingList', newItem)
+      const response = await axios.post('https://mern-backend-nr1c5n5es-iamfrankmunene.vercel.app//shoppingList', newItem)
       // Update the frontend state with the newly added item
       setLists((prevLists) => {
         const updatedLists = [...prevLists]

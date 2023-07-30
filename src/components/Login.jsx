@@ -18,7 +18,7 @@ const LoginForm = ({ handleAuthenticationSuccess, showLogin }) => {
     e.preventDefault()
     try {
       // Call the backend API to login the user
-      const response = await axios.post('https://zesty-tarsier-5adeee.netlify.app/login', {
+      const response = await axios.post('https://mern-backend-nr1c5n5es-iamfrankmunene.vercel.app//login', {
         username,
         password,
       })
