@@ -20,7 +20,7 @@ const ShoppingList = ({user_id}) => {
 
   const fetchShoppingList = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/shoppingList/${user_id}`)
+      const response = await axios.get(`https://shelflife-backend.onrender.com/shoppingList/${user_id}`)
       setLists(response.data)
     } catch (error) {
       toast.error('Error fetching shopping list.')
@@ -29,7 +29,7 @@ const ShoppingList = ({user_id}) => {
 
   const fetchShoppingListHistory = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/shoppingHistory/${user_id}`)
+      const response = await axios.get(`https://shelflife-backend.onrender.com/shoppingHistory/${user_id}`)
       setShoppingHistory(response.data)
     } catch (error) {
       toast.error('Error fetching shopping history.')
@@ -68,7 +68,7 @@ const ShoppingList = ({user_id}) => {
 
       const updatedItem = updatedListsCopy.find((item) => item._id === itemId)
 
-      await axios.put(`http://localhost:3000/shoppingList/${user_id}/${itemId}`, {
+      await axios.put(`https://shelflife-backend.onrender.com/shoppingList/${user_id}/${itemId}`, {
         completed: updatedItem.completed,
         crossedOutDate: updatedItem.crossedOutDate,
       })
@@ -91,7 +91,7 @@ const ShoppingList = ({user_id}) => {
     if (!itemToDelete.completed) {
       // If the item is not completed, delete it from the database
       try {
-        await axios.delete(`http://localhost:3000/shoppingList/${user_id}/${itemToDelete._id}`);
+        await axios.delete(`https://shelflife-backend.onrender.com/shoppingList/${user_id}/${itemToDelete._id}`);
         // Fetch the updated shopping list after deletion
         fetchShoppingList();
         toast.success('Item deleted successfully.');
@@ -115,7 +115,7 @@ const ShoppingList = ({user_id}) => {
 
     // Backend delete
     try {
-      await axios.delete(`http://localhost:3000/shoppingHistory/${user_id}/${itemId}`)
+      await axios.delete(`https://shelflife-backend.onrender.com/shoppingHistory/${user_id}/${itemId}`)
     } catch (error) {
       toast.error('Error deleting item from shopping history.')
     }
@@ -129,7 +129,7 @@ const ShoppingList = ({user_id}) => {
     const newItem = lists[itemIndex]
     try {
       // Send the POST request to the backend to add the new item
-      const response = await axios.post(`http://localhost:3000/shoppingList/${user_id}`, newItem)
+      const response = await axios.post(`https://shelflife-backend.onrender.com/shoppingList/${user_id}`, newItem)
       // Update the frontend state with the newly added item
       setLists((prevLists) => {
         const updatedLists = [...prevLists]

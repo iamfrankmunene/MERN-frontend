@@ -6,7 +6,7 @@ import axios from 'axios'
 const AppNavBar = ({handleAuthenticationSuccess, handleToggleShoppingList, showShoppingList}) => {
 
   const logoutUser = async () => {
-    await axios.get('http://localhost:3000/logout')
+    await axios.get('https://shelflife-backend.onrender.com/logout')
     handleAuthenticationSuccess(false)
   }
 

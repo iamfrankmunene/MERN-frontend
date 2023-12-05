@@ -18,7 +18,7 @@ const LoginForm = ({ handleAuthenticationSuccess, handleSetUser, showLogin }) =>
     e.preventDefault()
     try {
       // Call the backend API to login the user
-      const response = await axios.post('http://localhost:3000/login', {
+      const response = await axios.post('https://shelflife-backend.onrender.com/login', {
         username,
         password,
       })

@@ -25,16 +25,16 @@ const ShelflifeInput = ({user_id}) => {
     try {
       // If the input has an _id, it means it already exists in the database, so update it
       if (input._id) {
-        await axios.put(`http://localhost:3000/shelflife/${input.user_id}/${input._id}`, input)
+        await axios.put(`https://shelflife-backend.onrender.com/shelflife/${input.user_id}/${input._id}`, input)
         toast.success('Successfully updated input in the server')
       } else {
         // If the input doesn't have an _id, it's a new input, so add it to the database
-        await axios.post(`http://localhost:3000/shelflife/${input.user_id}`, input)
+        await axios.post(`https://shelflife-backend.onrender.com/shelflife/${input.user_id}`, input)
         toast.success('Successfully added input to the server')
       }
   
       // Fetch user-specific data from the backend and update the inputs
-      const response = await axios.get(`http://localhost:3000/shelflife/${input.user_id}`)
+      const response = await axios.get(`https://shelflife-backend.onrender.com/shelflife/${input.user_id}`)
       const shelflifeInputsData = response.data
       setInputs(shelflifeInputsData)
     } catch (error) {
@@ -48,10 +48,10 @@ const ShelflifeInput = ({user_id}) => {
       const idToDelete = inputs[index]._id
   
       // Send the DELETE request to the backend to delete the input by its ID
-      await axios.delete(`http://localhost:3000/shelflife/${inputs[index].user_id}/${idToDelete}`)
+      await axios.delete(`https://shelflife-backend.onrender.com/shelflife/${inputs[index].user_id}/${idToDelete}`)
   
       // Fetch all the available information from the backend and update the inputs
-      const response = await axios.get(`http://localhost:3000/shelflife/${inputs[index].user_id}`)
+      const response = await axios.get(`https://shelflife-backend.onrender.com/shelflife/${inputs[index].user_id}`)
       const shelflifeInputsData = response.data
       setInputs(shelflifeInputsData)
     } catch (error) {
@@ -74,7 +74,7 @@ const ShelflifeInput = ({user_id}) => {
     const checkAlerts = async () => {
       try {
         // Fetch the shelflife inputs from the server
-        const response = await axios.get(`http://localhost:3000/shelflife/${user_id}`)
+        const response = await axios.get(`https://shelflife-backend.onrender.com/shelflife/${user_id}`)
         const shelflifeInputsData = response.data
 
         const currentDate = formatDate(new Date())
@@ -109,7 +109,7 @@ const ShelflifeInput = ({user_id}) => {
     // Fetch all the available information from the backend and populate the inputs
     const fetchShelflifeInputs = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/shelflife/${user_id}`)
+        const response = await axios.get(`https://shelflife-backend.onrender.com/shelflife/${user_id}`)
         const shelflifeInputsData = response.data
         setInputs(shelflifeInputsData)
       } catch (error) {
